@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus - The Future of Movie Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Glowing Orbs -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+
+    <div class="app-wrapper">
+        <header class="glass-header">
+            <div class="logo">
+                <span class="material-symbols-outlined icon-logo">blur_on</span>
+                <h2>Nexus</h2>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="#" class="active">Explore</a>
+                <a href="#favorites-section">My Collection</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="hero-section">
+                <h1 class="hero-title">Discover the Extraordinary.</h1>
+                <p class="hero-subtitle">Search thousands of movies and series instantly through the digital void.</p>
+                
+                <div class="search-bar-wrapper glass-panel">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                    <input type="text" id="search-input" placeholder="What do you want to watch?">
+                    <span id="clear-search" class="material-symbols-outlined clear-icon hidden">close</span>
+                </div>
+            </div>
+
+            <section class="filters-section glass-panel">
+                <div class="filter-group">
+                    <select id="filter-type">
+                        <option value="">All Types</option>
+                        <option value="movie">Movies</option>
+                        <option value="series">Series</option>
+                        <option value="episode">Episodes</option>
+                    </select>
+                </div>
+                <div class="filter-group year-inputs">
+                    <input type="number" id="min-year" placeholder="Min Year">
+                    <span class="year-divider">-</span>
+                    <input type="number" id="max-year" placeholder="Max Year">
+                </div>
+                <div class="filter-group">
+                    <select id="filter-genre">
+                        <option value="">All Genres</option>
+                        <!-- Genres populated dynamically -->
+                    </select>
+                </div>
+                <div class="filter-group ml-auto">
+                    <span class="material-symbols-outlined sort-icon">sort</span>
+                    <select id="sort-by">
+                        <option value="title-asc">A-Z</option>
+                        <option value="title-desc">Z-A</option>
+                        <option value="year-desc">Latest Release</option>
+                        <option value="rating-desc">Top Rated</option>
+                    </select>
+                </div>
+            </section>
+
+            <div id="loading" class="loading hidden">
+                <span class="material-symbols-outlined spin">hourglass_empty</span>
+                <p>Synthesizing Data...</p>
+            </div>
+            <div id="error" class="error hidden"></div>
+            
+            <section class="content-section">
+                <div class="section-header">
+                    <h2><span class="material-symbols-outlined">data_usage</span> Results</h2>
+                </div>
+                <div id="results" class="results-grid"></div>
+                <div id="pagination" class="pagination-wrapper"></div>
+            </section>
+
+            <section id="favorites-section" class="content-section favorites-area">
+                <div class="section-header">
+                    <h2><span class="material-symbols-outlined">bookmark_added</span> My Collection</h2>
+                </div>
+                <div id="favorites-list" class="results-grid"></div>
+            </section>
+        </main>
+    </div>
+    <div id="toast-container" class="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
